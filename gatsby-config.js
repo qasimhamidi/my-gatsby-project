@@ -1,8 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
 
 /**
  * @type {import('gatsby').GatsbyConfig}
@@ -15,7 +10,8 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
-    `gatsby-plugin-image`,
+    // Removed 'gatsby-plugin-mine' as it does not exist
+    `gatsby-plugin-react-helmet`, // For managing SEO metadata
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -39,5 +35,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-offline`,
   ],
 }

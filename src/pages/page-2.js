@@ -1,17 +1,12 @@
-import * as React from "react"
-import { Link } from "gatsby"
-
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+// src/pages/page-2.js
+import React from "react";
+import Layout from "../components/layout";
 
 const SecondPage = () => (
   <Layout>
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <h1>Page 2</h1>
+    <p>This is the second page of your Gatsby site.</p>
   </Layout>
-)
+);
 
-export const Head = () => <Seo title="Page two" />
-
-export default SecondPage
+export default SecondPage;
