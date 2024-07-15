@@ -26,7 +26,7 @@ const Education = () => {
             </div>
             <div>
                 <h3>English Language and Literature (Unfinished)</h3>
-                <p>Badghis Institute of Higher Education</p>
+                <p>Herat Institute of Higher Education</p>
                 <p>Completed six semesters by December 2020</p>
             </div>
         </section>
