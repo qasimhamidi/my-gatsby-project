@@ -1,16 +1,34 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
+
 on:
   push:
     branches: 
       - main
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-             NETLIFY_AUTH_TOKEN: ${{ secrets.MY_NETLIFY_TOKEN }}
-             NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
-             NETLIFY_DEPLOY_TO_PROD: true
+          node-version: '14'  # or any version you need
+        
+      - name: Set environment variables for Netlify
+        run: echo "NETLIFY_AUTH_TOKEN=${{ secrets.MY_NETLIFY_TOKEN }}" >> $GITHUB_ENV
+        shell: bash
+      
+      - name: Deploy to Netlify
+        run: |
+          echo "Deploying to Netlify..."
+          echo "Deploy Message: Prod deploy v${{ github.ref }}"
+          echo "Deploy to Prod: true"
+          # Here you would add the actual command to deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.MY_NETLIFY_TOKEN }}
+          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+          NETLIFY_DEPLOY_TO_PROD: true
